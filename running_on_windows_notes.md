@@ -69,7 +69,7 @@ I tried running the starter-kit on windows and ran into some problems, which I (
 - fixed by changing the html prop ```src``` of the ```<script id="sap-ui-bootstrap"```-tag from ```..\ui5\1.50.1\sap-ui-core.js``` to ```../ui5/1.50.1/sap-ui-core.js```
 - windows backslashes (```\``` instead of ```/```) in html seem to be a problem...
 
-## webpage load problem
+## finally
 
 It works!
 
