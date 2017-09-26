@@ -2,7 +2,8 @@
   controllerName="app.todo.controller.Main"
   xmlns:html="http://www.w3.org/1999/xhtml"
   xmlns:mvc="sap.ui.core.mvc"
-  xmlns="sap.m">
+  xmlns="sap.m"
+  xmlns:viz="ui5.viz">
   <Page
     class="sapUiResponsiveContentPadding"
     showHeader="false"
@@ -107,6 +108,23 @@
           text="Current Done: {countHistory>/currentCountDone}" />
         <Label
           text="Done History: {= JSON.stringify( ${countHistory>/countHistoryDone} ) }" />
+
+        <!-- Does not seem to work -->
+        <!-- <viz:Chart xAxisType="Indexed" width="100%" height="400px" zoomEnabled="true" showTooltip="true" groupedTooltip="true" showLegend="true" showSubchart="true">
+          <viz:series>
+            <viz:ChartSeries type="line" name="firstSeries" shapeStyle="ui5.viz.LineStyle.Dashed">
+              <viz:data>
+                <viz:ChartDataPoint value = "1" label = "value 1"/>
+                <viz:ChartDataPoint value = "2" label = "value 2"/>
+                <viz:ChartDataPoint value = "3" label = "value 3"/>
+                <viz:ChartDataPoint value = "4" label = "value 4"/>
+                <viz:ChartDataPoint value = "5" label = "value 5"/>
+                <viz:ChartDataPoint value = "6" label = "value 6"/>
+                <viz:ChartDataPoint value = "7" label = "value 7"/>
+              </viz:data>
+            </viz:ChartSeries>
+          </viz:series>
+        </viz:Chart> -->
 
       </VBox>
     </content>
