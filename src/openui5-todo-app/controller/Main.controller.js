@@ -52,6 +52,8 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
       // update todo model
       oTodoModel.setProperty('/items', aNewTodoItems)
 
+      this.updateCountHistory()
+
       // update todo input
       oViewModel.setProperty('/Main/newTodoItemName', '')
     },
@@ -75,6 +77,8 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
       // update todo model
       oTodoModel.setProperty('/items', aNewTodoItems)
 
+      this.updateCountHistory()
+
       // update items left
       this._updateItemsLeft()
     },
@@ -93,6 +97,8 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
 
       // update todo model
       oTodoModel.setProperty('/items', aNewTodoItems)
+
+      this.updateCountHistory()
     },
 
     /**
@@ -118,6 +124,8 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
       // update todo model
       oTodoModel.setProperty('/items', aNewTodoItems)
 
+      this.updateCountHistory()
+
       // update items left
       this._updateItemsLeft()
     },
@@ -141,8 +149,52 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
       // update todo model
       oTodoModel.setProperty('/items', aNewTodoItems)
 
+      this.updateCountHistory()
+
       // update items left
       this._updateItemsLeft()
+    },
+
+    updateCountHistory() {
+      const oTodoModel = this.getView().getModel('todo')
+      const aTodoItems = oTodoModel.getProperty('/items')
+
+      const oTodoCountHistoryModel = this.getView().getModel('countHistory')
+      const aCountHistoryActive = oTodoCountHistoryModel.getProperty(
+        '/countHistoryActive'
+      )
+      const aCountHistoryDone = oTodoCountHistoryModel.getProperty(
+        '/countHistoryDone'
+      )
+
+      let iNewCountActive = 0
+      let iNewCountDone = 0
+
+      aTodoItems.forEach(function(todoItem) {
+        if (todoItem.isCompleted) {
+          iNewCountDone++
+        } else {
+          iNewCountActive++
+        }
+      }, this)
+
+      const aNewCountHistoryActive = aCountHistoryActive
+      aNewCountHistoryActive.push(iNewCountActive)
+
+      const aNewCountHistoryDone = aCountHistoryDone
+      aNewCountHistoryDone.push(iNewCountDone)
+
+      // update model
+      oTodoCountHistoryModel.setProperty('/currentCountActive', iNewCountActive)
+      oTodoCountHistoryModel.setProperty(
+        '/countHistoryActive',
+        aNewCountHistoryActive
+      )
+      oTodoCountHistoryModel.setProperty('/currentCountDone', iNewCountDone)
+      oTodoCountHistoryModel.setProperty(
+        '/countHistoryDone',
+        aNewCountHistoryDone
+      )
     },
 
     /* ----------------------------------------------------------- *

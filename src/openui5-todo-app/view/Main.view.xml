@@ -97,6 +97,12 @@
             </CustomListItem>
           </List>
         </VBox>
+
+        <Label
+          text="Current Active: {countHistory>/currentCountActive}" />
+        <Label
+          text="Current Done: {countHistory>/currentCountDone}" />
+
       </VBox>
     </content>
   </Page>

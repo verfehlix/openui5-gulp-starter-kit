@@ -17,6 +17,17 @@ sap.ui.define(['sap/ui/model/json/JSONModel', 'sap/ui/Device'], function(
       })
       oModel.setDefaultBindingMode('OneWay')
       return oModel
+    },
+
+    createTodoCountHistoryModel() {
+      var oModel = new JSONModel({
+        currentCountActive: 0,
+        countHistoryActive: [0],
+        currentCountDone: 0,
+        countHistoryDone: [0]
+      })
+      oModel.setDefaultBindingMode('OneWay')
+      return oModel
     }
   }
 })

@@ -30,6 +30,9 @@ sap.ui.define(
         // set the todo model
         this.setModel(models.createTodoModel(), 'todo')
 
+        // set the todo model
+        this.setModel(models.createTodoCountHistoryModel(), 'countHistory')
+
         // create the views based on the url/hash
         this.getRouter().initialize()
       },
