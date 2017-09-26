@@ -125,6 +125,7 @@
             </viz:ChartSeries>
           </viz:series>
         </viz:Chart> -->
+        <html:div id="c3chart"></html:div>
 
       </VBox>
     </content>

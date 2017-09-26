@@ -1,3 +1,5 @@
+var chart
+
 sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
   return BaseController.extend('app.todo.controller.Main', {
     /* ----------------------------------------------------------- *
@@ -8,7 +10,7 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
      * Called when the controller is instantiated.
      * @public
      */
-    onInit() {
+    onInit(oEvent) {
       // init view state (accassible via {view>/Main/...})
       this.initViewState({
         selectedFilter: 'all',
@@ -19,6 +21,21 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
       // listen to relevant routes pointing to our view
       this.getRouter().getRoute('root').attachMatched(this.onRouteMatched, this)
       this.getRouter().getRoute('todo').attachMatched(this.onRouteMatched, this)
+    },
+
+    onAfterRendering(oEvent) {
+      // C3 Stuff
+      chart = c3.generate({
+        bindto: '#__xmlview1--c3chart',
+        data: {
+          columns: [['active', 0], ['done', 0]],
+          types: {
+            active: 'area-spline',
+            done: 'area-spline'
+          }
+          // groups: [['active', 'done']]
+        }
+      })
     },
 
     /* ----------------------------------------------------------- *
@@ -195,6 +212,20 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
         '/countHistoryDone',
         aNewCountHistoryDone
       )
+
+      this.updateChart(aNewCountHistoryActive, aNewCountHistoryDone)
+    },
+
+    updateChart(activeArray, doneArray) {
+      const activeArrayName = ['active']
+      const doneArrayName = ['done']
+
+      const loadDataActive = activeArrayName.concat(activeArray)
+      const loadDataDone = doneArrayName.concat(doneArray)
+
+      chart.load({
+        columns: [loadDataActive, loadDataDone]
+      })
     },
 
     /* ----------------------------------------------------------- *
