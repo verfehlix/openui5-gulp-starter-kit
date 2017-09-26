@@ -70,6 +70,14 @@ I tried running the starter-kit on windows and ran into some problems, which I (
 - windows backslashes (```\``` instead of ```/```) in html seem to be a problem...
 - handlebars template puts ```{{secure src}}``` as ```src```
     - comes from ```getRelativeUI5SrcURL``` from gulpfile
+    - line 419 --> on windows, ```path.relative``` converts the "correct" ```/``` path into ```\```
+- more permanent solution: added code snippet
+```js
+ if(sRelativeUI5Path.includes("\\")) {
+    sRelativeUI5Path = sRelativeUI5Path.replace(/\\/g,"/")
+  }
+```
+
 
 ## finally
 
