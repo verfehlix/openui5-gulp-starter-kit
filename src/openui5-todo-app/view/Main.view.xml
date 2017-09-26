@@ -39,6 +39,32 @@
               submit="onAddNewItem" />
           </Toolbar>
 
+          <!-- footer toolbar -->
+          <Toolbar
+            class="appTodoListFooter"
+            design="Transparent">
+            <Label
+              class="appTodoFooterText"
+              text="{view>/Main/itemsLeft} {i18n>Main.itemsLeft}" />
+            <ToolbarSpacer />
+            <SegmentedButton
+              class="appTodoSegmentedFilterButton sapUiSizeCompact"
+              selectedKey="{view>/Main/selectedFilter}">
+              <items>
+                <SegmentedButtonItem text="{i18n>Main.filterAll}" key="all" />
+                <SegmentedButtonItem text="{i18n>Main.filterActive}" key="active" />
+                <SegmentedButtonItem text="{i18n>Main.filterCompleted}" key="completed" />
+              </items>
+            </SegmentedButton>
+            <ToolbarSpacer/>
+            <Button
+              class="appTodoClearCompleted"
+              text="{i18n>Main.clearCompletedBtn}"
+              type="Transparent"
+              enabled="{= ${view>/Main/itemsLeft} &lt; ${todo>/items}.length }"
+              press="onClearCompletedTodos" />
+          </Toolbar>
+
           <!-- todo items -->
           <List
             class="appTodoListMain"
@@ -67,31 +93,6 @@
             </CustomListItem>
           </List>
 
-          <!-- footer toolbar -->
-          <Toolbar
-            class="appTodoListFooter"
-            design="Transparent">
-            <Label
-              class="appTodoFooterText"
-              text="{view>/Main/itemsLeft} {i18n>Main.itemsLeft}" />
-            <ToolbarSpacer />
-            <SegmentedButton
-              class="appTodoSegmentedFilterButton sapUiSizeCompact"
-              selectedKey="{view>/Main/selectedFilter}">
-              <items>
-                <SegmentedButtonItem text="{i18n>Main.filterAll}" key="all" />
-                <SegmentedButtonItem text="{i18n>Main.filterActive}" key="active" />
-                <SegmentedButtonItem text="{i18n>Main.filterCompleted}" key="completed" />
-              </items>
-            </SegmentedButton>
-            <ToolbarSpacer/>
-            <Button
-              class="appTodoClearCompleted"
-              text="{i18n>Main.clearCompletedBtn}"
-              type="Transparent"
-              enabled="{= ${view>/Main/itemsLeft} &lt; ${todo>/items}.length }"
-              press="onClearCompletedTodos" />
-          </Toolbar>
 
         </VBox>
       </VBox>
