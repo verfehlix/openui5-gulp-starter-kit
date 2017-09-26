@@ -14,7 +14,7 @@ body.sapUiBody {
 }
 
 // variables
-@appTodoThemeColor: #2C9E0F;
+@appTodoThemeColor: #8e44ad;
 
 // mixins
 .appTodoFontType {
@@ -64,6 +64,20 @@ body.sapUiBody {
   background: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 
+  // card stack effect
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+  }
+
   // header
   .appTodoListHeader {
     padding-left: 0;
@@ -87,10 +101,50 @@ body.sapUiBody {
         border-color: @appTodoThemeColor;
       }
     }
+
+    // "x items left" text
+    .appTodoHeaderText {
+      color: #777777;
+      .appTodoFontType;
+    }
+
+    // segmented filter button
+    .appTodoSegmentedFilterButton {
+      padding: 0.5rem 0;
+      width: auto !important;
+
+      // default button
+      li,
+      li:active,
+      li:hover {
+        color: #777777;
+        background: transparent !important;
+        width: auto !important;
+
+        // selected button
+        &.sapMSegBBtnSel {
+          color: @appTodoThemeColor;
+          border-color: @appTodoThemeColor;
+        }
+      }
+    }
+
+    // "clear done" Button
+    .appTodoClearDone {
+      // apply theme color
+      .sapMBtnText {
+        color: #777777;
+      }
+      .sapMBtnActive {
+        background-color: @appTodoThemeColor;
+        border-color: @appTodoThemeColor;
+      }
+    }
   }
 
   // main (list)
   .appTodoListMain {
+
     // single todo item
     .appTodoListItem {
       overflow: hidden;
@@ -99,9 +153,9 @@ body.sapUiBody {
       .appTodoCheckBox > div.sapMCbBg {
         border-radius: 50%;
         border-width: 1px;
-        height: 1.25rem;
-        width: 1.25rem;
-        line-height: 1.25rem;
+        // height: 1.25rem;
+        // width: 1.25rem;
+        // line-height: 1.25rem;
 
         // apply theme color
         &:hover {
@@ -123,8 +177,6 @@ body.sapUiBody {
           opacity: 0.2;
           .appTodoFontType;
           color: #777777;
-          transition: opacity 0s cubic-bezier(0.4, 0.0, 0.2, 1.0) 0.2s,
-            color 0s cubic-bezier(0.4, 0.0, 0.2, 1.0) 0.2s;
         }
       }
 
@@ -136,65 +188,6 @@ body.sapUiBody {
           color: @appTodoThemeColor;
         }
       }
-    }
-  }
-
-  // footer
-  .appTodoListFooter {
-    // card stack effect
-    &:before {
-      content: '';
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      height: 50px;
-      overflow: hidden;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
-        0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
-        0 17px 2px -6px rgba(0, 0, 0, 0.2);
-    }
-
-    // segmented filter button
-    .appTodoSegmentedFilterButton {
-      padding: 0.5rem 0;
-      width: auto !important;
-
-      // default button
-      li,
-      li:active,
-      li:hover {
-        color: #777777;
-        background: transparent !important;
-        width: auto !important;
-        margin: 0 0.25rem;
-        border-radius: 0.25rem;
-        border-width: 1px;
-
-        // selected button
-        &.sapMSegBBtnSel {
-          color: @appTodoThemeColor;
-          border-color: @appTodoThemeColor;
-        }
-      }
-    }
-
-    // clear completed Button
-    .appTodoClearCompleted {
-      // apply theme color
-      .sapMBtnText {
-        color: #777777;
-      }
-      .sapMBtnActive {
-        background-color: @appTodoThemeColor;
-        border-color: @appTodoThemeColor;
-      }
-    }
-
-    // footer text
-    .appTodoFooterText {
-      color: #777777;
-      .appTodoFontType;
     }
   }
 }

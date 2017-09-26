@@ -26,11 +26,6 @@
           <Toolbar
             class="appTodoListHeader"
             design="Transparent">
-            <ToggleButton
-              class="appTodoToggleListCompletion"
-              type="Transparent"
-              icon="sap-icon://slim-arrow-down"
-              press="onPressCompleteAllTodos"/>
             <Input
               class="appTodoItemInput"
               value="{view>/Main/newTodoItemName}"
@@ -39,26 +34,35 @@
               submit="onAddNewItem" />
           </Toolbar>
 
-          <!-- footer toolbar -->
+          <!-- header toolbar (select all, filtering) -->
           <Toolbar
-            class="appTodoListFooter"
+            class="appTodoListHeader"
             design="Transparent">
+            <!-- Select All Toggle Button -->
+            <ToggleButton
+              class="appTodoToggleListCompletion"
+              type="Transparent"
+              icon="sap-icon://arrow-down"
+              press="onPressCompleteAllTodos"/>
+            <!-- "X Items Left" - Text  -->
             <Label
-              class="appTodoFooterText"
+              class="appTodoHeaderText"
               text="{view>/Main/itemsLeft} {i18n>Main.itemsLeft}" />
             <ToolbarSpacer />
+            <!-- Filtering -->
             <SegmentedButton
               class="appTodoSegmentedFilterButton sapUiSizeCompact"
               selectedKey="{view>/Main/selectedFilter}">
               <items>
                 <SegmentedButtonItem text="{i18n>Main.filterAll}" key="all" />
                 <SegmentedButtonItem text="{i18n>Main.filterActive}" key="active" />
-                <SegmentedButtonItem text="{i18n>Main.filterCompleted}" key="completed" />
+                <SegmentedButtonItem text="{i18n>Main.filterCompleted}" key="done" />
               </items>
             </SegmentedButton>
             <ToolbarSpacer/>
+            <!-- "Clear Done" Button -->
             <Button
-              class="appTodoClearCompleted"
+              class="appTodoClearDone"
               text="{i18n>Main.clearCompletedBtn}"
               type="Transparent"
               enabled="{= ${view>/Main/itemsLeft} &lt; ${todo>/items}.length }"
@@ -77,7 +81,7 @@
               visible="{=
                 ${view>/Main/selectedFilter} === 'all' ||
                 ${view>/Main/selectedFilter} === 'active' &amp;&amp; !${todo>isCompleted} ||
-                ${view>/Main/selectedFilter} === 'completed' &amp;&amp; ${todo>isCompleted}
+                ${view>/Main/selectedFilter} === 'done' &amp;&amp; ${todo>isCompleted}
               }">
               <HBox alignItems="Center">
                 <CheckBox
@@ -92,8 +96,6 @@
               </HBox>
             </CustomListItem>
           </List>
-
-
         </VBox>
       </VBox>
     </content>

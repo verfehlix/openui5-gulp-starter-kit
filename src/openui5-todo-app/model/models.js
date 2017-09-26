@@ -13,20 +13,7 @@ sap.ui.define(['sap/ui/model/json/JSONModel', 'sap/ui/Device'], function(
 
     createTodoModel() {
       var oModel = new JSONModel({
-        items: [
-          {
-            name: 'Toast',
-            isCompleted: false
-          },
-          {
-            name: 'Banana',
-            isCompleted: false
-          },
-          {
-            name: 'Pineapple',
-            isCompleted: false
-          }
-        ]
+        items: []
       })
       oModel.setDefaultBindingMode('OneWay')
       return oModel
