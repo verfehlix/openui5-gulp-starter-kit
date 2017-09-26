@@ -3,8 +3,8 @@
   "version": "0.0.4",
   "description": "OpenUI5 template app build with gulp.",
   "scripts": {
-    "start": "node_modules/gulp/bin/gulp.js --silent",
-    "build": "node_modules/gulp/bin/gulp.js build --silent",
+    "start": "node node_modules/gulp/bin/gulp.js --silent",
+    "build": "node node_modules/gulp/bin/gulp.js build --silent",
     "precommit": "lint-staged"
   },
   "lint-staged": {

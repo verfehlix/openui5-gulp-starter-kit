@@ -420,6 +420,10 @@ function getRelativeUI5SrcURL() {
     sRelativeUI5Path = path.relative(path.dirname(sEntryHTMLPath), sOpenUI5Path)
   }
 
+  if (sRelativeUI5Path.includes('\\')) {
+    sRelativeUI5Path = sRelativeUI5Path.replace(/\\/g, '/')
+  }
+
   return sRelativeUI5Path
 }
 
