@@ -178,10 +178,10 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
         }
       }, this)
 
-      const aNewCountHistoryActive = aCountHistoryActive
+      const aNewCountHistoryActive = aCountHistoryActive.slice()
       aNewCountHistoryActive.push(iNewCountActive)
 
-      const aNewCountHistoryDone = aCountHistoryDone
+      const aNewCountHistoryDone = aCountHistoryDone.slice()
       aNewCountHistoryDone.push(iNewCountDone)
 
       // update model

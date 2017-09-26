@@ -101,7 +101,12 @@
         <Label
           text="Current Active: {countHistory>/currentCountActive}" />
         <Label
+          text="Done History: {= JSON.stringify( ${countHistory>/countHistoryActive} ) }" />
+
+        <Label
           text="Current Done: {countHistory>/currentCountDone}" />
+        <Label
+          text="Done History: {= JSON.stringify( ${countHistory>/countHistoryDone} ) }" />
 
       </VBox>
     </content>
