@@ -30,10 +30,14 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
         data: {
           columns: [['active', 0], ['done', 0]],
           types: {
-            active: 'area-spline',
-            done: 'area-spline'
+            active: 'area',
+            done: 'area'
+          },
+          groups: [['active', 'done']],
+          colors: {
+            active: '#8e44ad',
+            done: '#2ECC71'
           }
-          // groups: [['active', 'done']]
         }
       })
     },
@@ -220,8 +224,13 @@ sap.ui.define(['app/todo/controller/BaseController'], function(BaseController) {
       const activeArrayName = ['active']
       const doneArrayName = ['done']
 
-      const loadDataActive = activeArrayName.concat(activeArray)
-      const loadDataDone = doneArrayName.concat(doneArray)
+      const max20activeArray =
+        activeArray.length > 20 ? activeArray.slice(-20) : activeArray
+      const max20doneArray =
+        doneArray.length > 20 ? doneArray.slice(-20) : doneArray
+
+      const loadDataActive = activeArrayName.concat(max20activeArray)
+      const loadDataDone = doneArrayName.concat(max20doneArray)
 
       chart.load({
         columns: [loadDataActive, loadDataDone]

@@ -1,4 +1,8 @@
 {
     "presets": ["es2015", "stage-0"],
-    "plugins": []
+    "plugins": [],
+    "ignore": [
+      "d3.js",
+      "c3.min.js"
+    ]
 }
