@@ -1,3 +1,7 @@
+# Final Result
+
+![chart](https://user-images.githubusercontent.com/7032914/30875572-4b7111c0-a2f4-11e7-9c94-36d043b91565.gif)
+
 ### Todo App - Notes
 
 ##### general
