@@ -55,9 +55,9 @@
               class="appTodoSegmentedFilterButton sapUiSizeCompact"
               selectedKey="{view>/Main/selectedFilter}">
               <items>
-                <SegmentedButtonItem text="{i18n>Main.filterAll}" key="all" />
-                <SegmentedButtonItem text="{i18n>Main.filterActive}" key="active" />
-                <SegmentedButtonItem text="{i18n>Main.filterCompleted}" key="done" />
+                <SegmentedButtonItem text="{i18n>Main.filterAll} ({= ${countHistory>/currentCountActive} + ${countHistory>/currentCountDone} })" key="all" />
+                <SegmentedButtonItem text="{i18n>Main.filterActive} ({countHistory>/currentCountActive})" key="active" />
+                <SegmentedButtonItem text="{i18n>Main.filterCompleted} ({countHistory>/currentCountDone})" key="done" />
               </items>
             </SegmentedButton>
             <ToolbarSpacer/>
@@ -99,16 +99,6 @@
           </List>
         </VBox>
 
-        <Label
-          text="Current Active: {countHistory>/currentCountActive}" />
-        <Label
-          text="Done History: {= JSON.stringify( ${countHistory>/countHistoryActive} ) }" />
-
-        <Label
-          text="Current Done: {countHistory>/currentCountDone}" />
-        <Label
-          text="Done History: {= JSON.stringify( ${countHistory>/countHistoryDone} ) }" />
-
         <!-- Does not seem to work -->
         <!-- <viz:Chart xAxisType="Indexed" width="100%" height="400px" zoomEnabled="true" showTooltip="true" groupedTooltip="true" showLegend="true" showSubchart="true">
           <viz:series>
@@ -125,7 +115,16 @@
             </viz:ChartSeries>
           </viz:series>
         </viz:Chart> -->
-        <html:div id="c3chart"></html:div>
+        <VBox
+          class="chartContainer"
+          width="550px">
+
+          <Label
+            class="labelText"
+            text="{i18n>Main.visualizationHeader}" />
+
+          <html:div id="c3chart"></html:div>
+        </VBox>
 
       </VBox>
     </content>
