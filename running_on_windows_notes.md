@@ -25,7 +25,7 @@ I tried running the starter-kit on windows and ran into some problems, which I (
 	- maybe encoding issue with sLessFileContent ? **no**
 	- maybe issue with creating the empty file when the thing fails for the first time? **no**
 	- issue is somewhere else (it really is the 1% case...)
-	- isolated test case with https://github.com/SAP/less-openui5 and same folder structure reveals problem with ```rootPaths``` property of ```oOptions``` (```ui5-lib-util/index.js : 674```) --> commenting it out seems to fix that issue? not really sure, maybe that breaks something else
+	- isolated test case with https://github.com/SAP/less-openui5 and same folder structure reveals problem with ```rootPaths``` property of ```oOptions``` (```ui5-lib-util/index.js : 669```) --> commenting it out seems to fix that issue? not really sure, maybe that breaks something else
     - after running into the **next issue**, I supose this issue has something to do with windows / unix paths again (i.e. ```/``` vs ```\```)
 
 ## webpage load problem
