@@ -19,7 +19,7 @@
 ##### yarn.lock
 - whats the reason for this file? 
 - maybe add to .gitignore?
-- nevermind, [documentation](https://yarnpkg.com/lang/en/docs/yarn-lock/) mentions it should be included in git for consistency reasons
+- nevermind, [documentation](https://yarnpkg.com/lang/en/docs/yarn-lock/) mentions it should be included in git for consistency reasons (see also [here](https://www.sitepoint.com/yarn-vs-npm/): *To avoid package version mis-matches, an exact installed version is pinned down in a lock file. Every time a module is added, Yarn creates (or updates) a yarn.lock file. This way you can guarantee another machine installs the exact same package, while still having a range of allowed versions defined in package.json.*)
 
 ##### index.html
 
