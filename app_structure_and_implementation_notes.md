@@ -19,6 +19,7 @@
 ##### yarn.lock
 - whats the reason for this file? 
 - maybe add to .gitignore?
+- nevermind, [documentation](https://yarnpkg.com/lang/en/docs/yarn-lock/) mentions it should be included in git for consistency reasons
 
 ##### index.html
 
