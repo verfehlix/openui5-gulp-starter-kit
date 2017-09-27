@@ -12,6 +12,10 @@
 - XML views -> never worked with them before, always js views, seems similar to android?
 - what does the templates folder (CustomControl.hbs file) do? seems like some sort of template for new UI5 controls? how can it be filled / used?
 
+##### developing & building
+- build process via yarn build
+- how can it be deployed? --> dist folder alone cannot be used (ui5 component libs are missing) maybe deploy both folders?
+
 ##### manifest.json
 - uses i18n stuff (e.g. app title / description)
 - **router**: "main app" is reachable via ```/``` route but also via ```/#/todo``` route
