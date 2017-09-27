@@ -10,7 +10,7 @@
 - .maps folder for sourcemapping?
 - no eslint? or just not within the boilerplate project?
 - XML views -> never worked with them before, always js views, seems similar to android?
-- what does the templates folder (CustomControl.hbs file) do?
+- what does the templates folder (CustomControl.hbs file) do? seems like some sort of template for new UI5 controls? how can it be filled / used?
 
 ##### manifest.json
 - uses i18n stuff (e.g. app title / description)
