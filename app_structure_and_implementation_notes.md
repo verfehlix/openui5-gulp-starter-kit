@@ -7,7 +7,7 @@
 ##### general
 - enterprise-ready - you weren't kidding...
 - live reload :-)
-- .maps folder for sourcemapping?
+- .maps folder for sourcemapping? --> created by gulp, sourcemaps itself is created by babel
 - no eslint? or just not within the boilerplate project?
 - XML views -> never worked with them before, always js views, seems similar to android?
 - what does the templates folder (CustomControl.hbs file) do? seems like some sort of template for new UI5 controls? how can it be filled / used?
