@@ -8,13 +8,9 @@
 - enterprise-ready - you weren't kidding...
 - live reload :-)
 - .maps folder for sourcemapping? --> created by gulp, sourcemaps itself is created by babel
-- no eslint? or just not within the boilerplate project?
+- no eslint? or just not within the boilerplate project? --> see [this commit](https://github.com/pulseshift/openui5-gulp-starter-kit/commit/a3379504859b18b069b1b6622c19563911ceee04) 
 - XML views -> never worked with them before, always js views, seems similar to android?
 - what does the templates folder (CustomControl.hbs file) do? seems like some sort of template for new UI5 controls? how can it be filled / used?
-
-##### developing & building
-- build process via yarn build
-- how can it be deployed? --> dist folder alone cannot be used (ui5 component libs are missing) maybe deploy both folders?
 
 ##### manifest.json
 - uses i18n stuff (e.g. app title / description)
@@ -48,7 +44,7 @@
 ##### ui5-lib-visualization
 - same api as ```sap.viz```, but based on FOSS software (C3.js / D3) ?
 - wanted to try out charting the todo history, but ```sap.viz``` is not included in openUI5
-- can't get ```ui5-lib-visualization``` to work... including the files & importing seems to work after putting the files at ```ui5/1.50.1/ui5/viz``` and ```ui5/1.50.1/vendor```
+- including the files & importing seems to work after putting the files at ```ui5/1.50.1/ui5/viz``` and ```ui5/1.50.1/vendor```
 - **but:** when trying to include some ```viz.Chart``` element (copied from the demo folder) in the XML view, I get an obscure XML parsing error message:
 ```
 Uncaught (in promise) TypeError: h is not a constructor
@@ -71,3 +67,7 @@ Uncaught (in promise) TypeError: h is not a constructor
 - after adding the c3.js library that way, I used a native html element ```<html:div id="c3chart"></html:div>``` within the XML view to create an anchor point for c3.js
 - within the controller, the chart gets initialized within the ```onAfterRendering``` function, as during ```onInit```, the needed anchor div element is not yet part of the DOM
 - the charts ```bindto``` property had to be set to ```#__xmlview1--c3chart``` to take care of the XML View generating the div with the id ```c3chart```
+
+##### developing & building
+- build process via yarn build
+- how can it be deployed? --> dist folder alone cannot be used (ui5 component libs are missing) maybe deploy both folders?
